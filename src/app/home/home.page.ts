@@ -13,6 +13,8 @@ import {
   IonInput,
   IonLabel,
   IonContent,
+  IonRadioGroup,
+  IonRadio,
 } from '@ionic/angular/standalone';
 import { MyHeaderComponent } from '../my-header/my-header.component';
 @Component({
@@ -32,10 +34,13 @@ import { MyHeaderComponent } from '../my-header/my-header.component';
     IonItem,
     IonInput,
     IonLabel,
+    IonRadioGroup,
+    IonRadio,
     NgFor,
   ],
 })
 export class HomePage {
+  selectedValue: string = 'option1';
   constructor(public productReadService: ProductReadService) {}
 
   ngOnInit() {

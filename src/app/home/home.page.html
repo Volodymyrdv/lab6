@@ -1,6 +1,6 @@
 <app-my-header></app-my-header>
 <ion-content [fullscreen]="true">
-  <ion-title class="center-title">Вибір товарів</ion-title>
+  <ion-title class="center-title">Вибір товару</ion-title>
   <ion-card
     class="product-card"
     *ngFor="let product of productReadService.products"
@@ -19,11 +19,33 @@
         <ion-label> Ціна: {{product.getPrice()}}грн</ion-label>
       </ion-item>
     </ion-card-content>
-    <ion-button color="success">Упакувати</ion-button>
+    <ion-button color="success">Додати в кошик</ion-button>
   </ion-card>
-  <!-- <ion-card>
-    <ion-card-header>
-      <ion-card-title>Упаковані товари</ion-card-title>
-    </ion-card-header>
-  </ion-card> -->
+  <ion-title class="center-title">Упакувати товар</ion-title>
+  <ion-card>
+    <ion-item>
+      <ion-input
+        class="input-size"
+        label="Номер товару"
+        labelPlacement="stacked"
+        type="number"
+        id="a"
+        min="1"
+        max="20"
+        #InputA
+      ></ion-input>
+    </ion-item>
+    <ion-radio-group>
+      <ion-item>
+        <ion-label>Проста упаковка</ion-label>
+        <ion-radio slot="start" value="option1"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Преміальна упаковка</ion-label>
+        <ion-radio slot="start" value="option2"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+    <ion-button>Упакувати</ion-button>
+  </ion-card>
 </ion-content>
