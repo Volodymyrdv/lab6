@@ -7,11 +7,11 @@ export class PremiumPackaging extends Packaging {
     super(product);
   }
 
-  getPrice(): number {
+  override getPrice(): number {
     return this.price;
   }
 
   override getType(): string {
-    return 'Premium Packaging';
+    return 'Premium';
   }
 }

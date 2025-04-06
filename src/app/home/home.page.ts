@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductReadService } from '../services/productread/product-read.service';
 import { NgFor } from '@angular/common';
+import { Packaging } from '../classes/class/Packaging';
+import { PackageFactory } from '../classes/class/PackageFactory';
 import {
   IonCard,
   IonCardHeader,
@@ -40,9 +42,30 @@ import { MyHeaderComponent } from '../my-header/my-header.component';
   ],
 })
 export class HomePage {
-  selectedValue: string = 'option1';
+  selectedValue: string = '';
+  packages: Packaging[] = [];
+
   constructor(public productReadService: ProductReadService) {}
 
+  handleChange(event: CustomEvent) {
+    this.selectedValue = event.detail.value;
+  }
+
+  handleClick(n: any) {
+    try {
+      n = parseInt(n);
+    } catch (error) {
+      console.error('Error');
+      return;
+    }
+    this.packages.push(
+      PackageFactory.createPackage(
+        this.productReadService.products[n - 1],
+        this.selectedValue
+      )
+    );
+    console.log(this.packages);
+  }
   ngOnInit() {
     this.productReadService.load();
   }

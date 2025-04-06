@@ -7,11 +7,11 @@ export class SimplePackaging extends Packaging {
     super(product);
   }
 
-  getPrice(): number {
+  override getPrice(): number {
     return this.price;
   }
 
   override getType(): string {
-    return 'Simple Packaging';
+    return 'Simple';
   }
 }
