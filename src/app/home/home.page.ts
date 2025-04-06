@@ -1,12 +1,44 @@
-import { Component } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
-
+import { Component, OnInit } from '@angular/core';
+import { ProductReadService } from '../services/productread/product-read.service';
+import { NgFor } from '@angular/common';
+import {
+  IonCard,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardContent,
+  IonCardSubtitle,
+  IonButton,
+  IonItem,
+  IonTitle,
+  IonInput,
+  IonLabel,
+  IonContent,
+} from '@ionic/angular/standalone';
+import { MyHeaderComponent } from '../my-header/my-header.component';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [
+    IonTitle,
+    IonContent,
+    MyHeaderComponent,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonCardSubtitle,
+    IonButton,
+    IonItem,
+    IonInput,
+    IonLabel,
+    NgFor,
+  ],
 })
 export class HomePage {
-  constructor() {}
+  constructor(public productReadService: ProductReadService) {}
+
+  ngOnInit() {
+    this.productReadService.load();
+  }
 }
