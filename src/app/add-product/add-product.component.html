@@ -1,0 +1,71 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Додати подарунок :)</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input
+          label="Назва"
+          formControlName="name"
+          labelPlacement="floating"
+          errorText="Назва повинна містити тільки букви"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Вартість"
+          formControlName="price"
+          type="number"
+          labelPlacement="floating"
+          errorText="Ціна повинна бути більше за 0"
+        ></ion-input>
+      </ion-item>
+      <ion-segment (ionChange)="onTypeChange($event.detail.value)">
+        <ion-segment-button value="GiftSet" content-id="GiftSet"
+          >GiftSet</ion-segment-button
+        >
+        <ion-segment-button value="Letter" content-id="Letter"
+          >Letter</ion-segment-button
+        >
+        <ion-segment-button value="Souvenir" content-id="Souvenir"
+          >Souvenir</ion-segment-button
+        >
+      </ion-segment>
+      <ion-segment-view>
+        <ion-segment-content id="GiftSet">
+          <ion-item>
+            <ion-input
+              label="Кількість продукту"
+              formControlName="itemCount"
+              type="number"
+              labelPlacement="floating"
+              errorText="Кількість продукту повинна бути більше за 0"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              label="Вага"
+              formControlName="weight"
+              type="number"
+              labelPlacement="floating"
+              errorText="Вага повинна бути в діапазоні від 1 до 5"
+            ></ion-input>
+          </ion-item>
+        </ion-segment-content>
+        <ion-segment-content id="Letter"></ion-segment-content>
+        <ion-segment-content id="Souvenir">
+          <ion-item>
+            <ion-input
+              label="Матеріал"
+              formControlName="material"
+              labelPlacement="floating"
+              errorText="Матеріал повинен бути містити букви"
+            ></ion-input>
+          </ion-item>
+        </ion-segment-content>
+      </ion-segment-view>
+    </ion-card-content>
+  </ion-card>
+  <ion-button type="submit" [disabled]="productForm.invalid">Submit</ion-button>
+</form>

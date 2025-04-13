@@ -11,7 +11,7 @@ export class ProductFactory {
           data.name,
           data.price,
           data.itemCount,
-          data.wieght
+          data.weight
         );
       case 'Letter':
         return new Letter(data.id, data.name, data.price);

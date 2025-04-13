@@ -1,5 +1,10 @@
 <app-my-header></app-my-header>
 <ion-content [fullscreen]="true">
+  <ion-button (click)="addFormShow()">Додати подарунок</ion-button>
+  <app-add-product
+    *ngIf="showAddForm"
+    (productAdd)="addProduct($event)"
+  ></app-add-product>
   <ion-title class="center-title">Вибір товару</ion-title>
   <ion-card
     class="product-card"
@@ -19,7 +24,24 @@
         <ion-label> Ціна: {{product.getPrice()}}грн</ion-label>
       </ion-item>
     </ion-card-content>
-    <ion-button color="success">Додати в кошик</ion-button>
+    <ion-button color="success" (click)="editFormShow(product.getID())"
+      >Редагувати</ion-button
+    >
+    <app-edit-product
+      *ngIf="showEditForm && product.getID() == editFormNumber"
+      (productUpdated)="editProduct($event, product.getID())"
+      [product]="product"
+    ></app-edit-product>
+
+    <ion-button color="danger" (click)="deleteFormShow(product.getID())"
+      >Видалити</ion-button
+    >
+    <app-delete-product
+      *ngIf="showDeleteForm && product.getID() == deleteFormNumber"
+      [product]="product"
+      (productDeleted)="deleteProduct($event)"
+      (cancel)="cancelDelete()"
+    ></app-delete-product>
   </ion-card>
 
   <ion-title class="center-title">Упакувати товар</ion-title>
@@ -32,7 +54,6 @@
         type="number"
         id="a"
         min="1"
-        max="20"
         #InputA
       ></ion-input>
     </ion-item>

@@ -21,4 +21,21 @@ export class ProductReadService {
         });
       });
   }
+
+  public addProduct(product: IProduct) {
+    const productToAdd = product;
+    productToAdd.setID(this.products.length + 1);
+    this.products.push(productToAdd);
+  }
+
+  public deleteProduct(n: number) {
+    console.log(this.products);
+    this.products = this.products.filter((product) => {
+      return product.getID() !== n;
+    });
+    console.log(this.products);
+    this.products.forEach((product, index) => {
+      product.setID(index + 1);
+    });
+  }
 }

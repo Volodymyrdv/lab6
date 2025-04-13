@@ -2,24 +2,24 @@ import { Product } from './Product';
 
 export class GiftSet extends Product {
   private itemCount: number;
-  private wieght: number;
+  private weight: number;
   constructor(
     id: number,
     name: string,
     price: number,
     itemCount: number,
-    wieght: number
+    weight: number
   ) {
     super(id, name, price);
     this.itemCount = itemCount;
-    this.wieght = wieght;
+    this.weight = weight;
   }
   getItemCount(): number {
     return this.itemCount;
   }
 
   getWeight(): number {
-    return this.wieght;
+    return this.weight;
   }
 
   override getType(): string {
@@ -29,7 +29,7 @@ export class GiftSet extends Product {
   override getDetails(): string[] {
     let details = [];
     details.push('Кількість товарів: ' + this.itemCount);
-    details.push('Вага: ' + this.wieght + ' кг');
+    details.push('Вага: ' + this.weight + ' кг');
     return details;
   }
 }

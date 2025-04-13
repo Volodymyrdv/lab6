@@ -32,4 +32,9 @@ export abstract class Product implements IProduct {
   getType(): string {
     return 'Product';
   }
+
+  setID(id: number): void {
+    if (id < 0) throw new Error('ID < 0');
+    this.id = id;
+  }
 }
