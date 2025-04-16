@@ -29,7 +29,7 @@
     >
     <app-edit-product
       *ngIf="showEditForm && product.getID() == editFormNumber"
-      (productUpdated)="editProduct($event, product.getID())"
+      (productUpdated)="editProduct($event)"
       [product]="product"
     ></app-edit-product>
 

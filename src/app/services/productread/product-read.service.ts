@@ -28,12 +28,19 @@ export class ProductReadService {
     this.products.push(productToAdd);
   }
 
+  public editProduct(product: IProduct) {
+    const productToEdit = product;
+    this.products.forEach((item, index) => {
+      if (item.getID() === productToEdit.getID()) {
+        this.products[index] = productToEdit;
+      }
+    });
+  }
+
   public deleteProduct(n: number) {
-    console.log(this.products);
     this.products = this.products.filter((product) => {
       return product.getID() !== n;
     });
-    console.log(this.products);
     this.products.forEach((product, index) => {
       product.setID(index + 1);
     });

@@ -80,7 +80,6 @@ export class HomePage {
         this.selectedValue
       )
     );
-    console.log(this.packages);
   }
 
   addFormShow() {
@@ -96,8 +95,8 @@ export class HomePage {
     this.editFormNumber = n;
     this.showEditForm = true;
   }
-  editProduct($event: any, n: number) {
-    this.productReadService.products[n] = $event;
+  editProduct($event: any) {
+    this.productReadService.editProduct($event);
     this.showEditForm = false;
   }
 

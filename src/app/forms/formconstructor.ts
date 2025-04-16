@@ -1,5 +1,4 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { productType } from '../classes/class/ProductName';
 import { nameValidator } from '../validators/name.validator';
 import { weightValidator } from '../validators/weight.validator';
 
@@ -16,13 +15,13 @@ export function formConstructor(
   });
 
   switch (type) {
-    case productType[0]: // GiftSet
+    case 'GiftSet': // GiftSet
       productForm.addControl('itemCount', fb.control(0, Validators.min(1)));
       productForm.addControl('weight', fb.control(0, weightValidator()));
       break;
-    case productType[1]: // Letter
+    case 'Letter': // Letter
       break;
-    case productType[2]: // Souvenir
+    case 'Souvenir': // Souvenir
       productForm.addControl('material', fb.control('', nameValidator()));
       break;
     default:
