@@ -7,7 +7,13 @@ export function formConstructor(
   productForm: FormGroup,
   fb: FormBuilder
 ) {
-  const controlsToRemove = ['itemCount', 'weight', 'material'];
+  const controlsToRemove = [
+    'itemCount',
+    'weight',
+    'material',
+    'author',
+    'pages',
+  ];
   controlsToRemove.forEach((control) => {
     if (productForm.contains(control)) {
       productForm.removeControl(control);
@@ -23,6 +29,10 @@ export function formConstructor(
       break;
     case 'Souvenir': // Souvenir
       productForm.addControl('material', fb.control('', nameValidator()));
+      break;
+    case 'Book': // Book
+      productForm.addControl('author', fb.control('', nameValidator()));
+      productForm.addControl('pages', fb.control(0, Validators.min(1)));
       break;
     default:
       throw new Error('Invalid product type');

@@ -54,6 +54,24 @@
           ></ion-input>
         </ion-item>
       </fieldset>
+      <fieldset *ngIf="product.getType() === types[3]">
+        <ion-item>
+          <ion-input
+            label="Автор"
+            formControlName="author"
+            labelPlacement="floating"
+            errorText="Автор повинен бути містити букви"
+          ></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input
+            label="Кількість сторінок"
+            formControlName="pages"
+            labelPlacement="floating"
+            errorText="Кількість сторінок повинно бути більше за 0"
+          ></ion-input>
+        </ion-item>
+      </fieldset>
     </ion-card-content>
   </ion-card>
   <ion-button type="submit">Submit</ion-button>

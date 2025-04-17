@@ -31,6 +31,9 @@
         <ion-segment-button value="Souvenir" content-id="Souvenir"
           >Souvenir</ion-segment-button
         >
+        <ion-segment-button value="Book" content-id="Book"
+          >Book</ion-segment-button
+        >
       </ion-segment>
       <ion-segment-view>
         <ion-segment-content id="GiftSet">
@@ -64,6 +67,26 @@
               formControlName="material"
               labelPlacement="floating"
               errorText="Матеріал повинен бути містити букви"
+            ></ion-input>
+          </ion-item>
+        </ion-segment-content>
+        <ion-segment-content id="Book">
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[3]"
+              label="Автор"
+              formControlName="author"
+              labelPlacement="floating"
+              errorText="Автор повинен бути містити букви"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              *ngIf="currentType === types[3]"
+              label="Кількість сторінок"
+              formControlName="pages"
+              labelPlacement="floating"
+              errorText="Кількість сторінок повинно бути більше за 0"
             ></ion-input>
           </ion-item>
         </ion-segment-content>

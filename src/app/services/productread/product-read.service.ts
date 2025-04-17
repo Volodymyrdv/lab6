@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from 'src/app/classes/interface/IProduct';
 import { ProductFactory } from 'src/app/classes/class/ProductFactory';
-const API_URL = 'https://api.jsonbin.io/v3/b/67f2a9048561e97a50f9c6a0';
+const API_URL = 'https://api.jsonbin.io/v3/b/680161658561e97a5001f18a';
 
 @Injectable({
   providedIn: 'root',
