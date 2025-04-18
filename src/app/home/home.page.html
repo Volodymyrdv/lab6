@@ -1,15 +1,25 @@
-<app-my-header></app-my-header>
 <ion-content [fullscreen]="true">
+  <app-my-header></app-my-header>
+
+  <ion-title class="center-title">Вибір типу товару</ion-title>
+  <ion-item *ngFor="let type of productTypes">
+    <ion-label>{{type}}</ion-label>
+    <ion-checkbox
+      slot="end"
+      (ionChange)="handleCheckboxChange($event, type)"
+      [checked]="selectedTypes.includes(type)"
+    >
+    </ion-checkbox>
+  </ion-item>
+
   <ion-button (click)="addFormShow()">Додати подарунок</ion-button>
   <app-add-product
     *ngIf="showAddForm"
     (productAdd)="addProduct($event)"
   ></app-add-product>
+
   <ion-title class="center-title">Вибір товару</ion-title>
-  <ion-card
-    class="product-card"
-    *ngFor="let product of productReadService.products"
-  >
+  <ion-card *ngFor="let product of filteredProducts">
     <ion-card-header class="card-header">
       <ion-card-title
         >{{product.getName()}} №{{product.getID()}}</ion-card-title
@@ -21,7 +31,7 @@
         <ion-label>{{details}}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-label> Ціна: {{product.getPrice()}}грн</ion-label>
+        <ion-label>Ціна: {{product.getPrice()}}грн</ion-label>
       </ion-item>
     </ion-card-content>
     <ion-button color="success" (click)="editFormShow(product.getID())"

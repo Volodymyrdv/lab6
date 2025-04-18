@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductReadService } from '../services/productread/product-read.service';
-import { NgFor, NgIf } from '@angular/common';
 import { Packaging } from '../classes/class/Packaging';
 import { PackageFactory } from '../classes/class/PackageFactory';
 import {
@@ -17,11 +16,16 @@ import {
   IonContent,
   IonRadioGroup,
   IonRadio,
+  IonCheckbox,
 } from '@ionic/angular/standalone';
 import { MyHeaderComponent } from '../my-header/my-header.component';
 import { AddProductComponent } from '../add-product/add-product.component';
 import { EditProductComponent } from '../edit-product/edit-product.component';
 import { DeleteProductComponent } from '../delete-product/delete-product.component';
+import { productType, ProductType } from '../classes/class/ProductName';
+import { ConfigService } from '../services/configservice/configservice.service';
+import { CommonModule } from '@angular/common';
+import { IProduct } from '../classes/interface/IProduct';
 
 @Component({
   selector: 'app-home',
@@ -42,51 +46,66 @@ import { DeleteProductComponent } from '../delete-product/delete-product.compone
     IonLabel,
     IonRadioGroup,
     IonRadio,
-    NgFor,
-    NgIf,
+    IonCheckbox,
+    CommonModule,
     AddProductComponent,
     EditProductComponent,
     DeleteProductComponent,
   ],
 })
-export class HomePage {
-  showAddForm: boolean = false;
-
-  showEditForm: boolean = false;
-  editFormNumber: number = 0;
-
-  showDeleteForm: boolean = false;
-  deleteFormNumber: number = 0;
-
-  selectedValue: string = '';
+export class HomePage implements OnInit {
+  showAddForm = false;
+  showEditForm = false;
+  editFormNumber = 0;
+  showDeleteForm = false;
+  deleteFormNumber = 0;
+  selectedValue = '';
   packages: Packaging[] = [];
+  selectedTypes: ProductType[] = [];
+  filteredProducts: IProduct[] = [];
+  productTypes = productType;
 
-  constructor(public productReadService: ProductReadService) {}
+  constructor(
+    public productReadService: ProductReadService,
+    private configService: ConfigService
+  ) {}
+
+  ngOnInit() {
+    this.productReadService.load();
+    this.productReadService.searchProduct$.subscribe((products) => {
+      this.filteredProducts = products;
+    });
+  }
+
+  handleCheckboxChange(event: CustomEvent, productType: ProductType) {
+    if (event.detail.checked) {
+      this.selectedTypes.push(productType);
+    } else {
+      this.selectedTypes = this.selectedTypes.filter(
+        (type) => type !== productType
+      );
+    }
+    this.configService.setSelectedTypes(this.selectedTypes);
+  }
 
   handleChange(event: CustomEvent) {
     this.selectedValue = event.detail.value;
   }
 
   handleClick(n: any) {
-    try {
-      n = parseInt(n);
-    } catch (error) {
-      console.error('Error');
-      return;
+    const index = parseInt(n);
+    const product = this.productReadService.getAllProducts()[index - 1];
+    if (product) {
+      const pack = PackageFactory.createPackage(product, this.selectedValue);
+      this.packages.push(pack);
     }
-    this.packages.push(
-      PackageFactory.createPackage(
-        this.productReadService.products[n - 1],
-        this.selectedValue
-      )
-    );
   }
 
   addFormShow() {
     this.showAddForm = true;
   }
 
-  addProduct($event: any) {
+  addProduct($event: IProduct) {
     this.productReadService.addProduct($event);
     this.showAddForm = false;
   }
@@ -95,7 +114,8 @@ export class HomePage {
     this.editFormNumber = n;
     this.showEditForm = true;
   }
-  editProduct($event: any) {
+
+  editProduct($event: IProduct) {
     this.productReadService.editProduct($event);
     this.showEditForm = false;
   }
@@ -104,15 +124,13 @@ export class HomePage {
     this.deleteFormNumber = n;
     this.showDeleteForm = true;
   }
+
   deleteProduct(n: number) {
     this.productReadService.deleteProduct(n);
     this.showDeleteForm = false;
   }
+
   cancelDelete() {
     this.showDeleteForm = false;
-  }
-
-  ngOnInit() {
-    this.productReadService.load();
   }
 }
