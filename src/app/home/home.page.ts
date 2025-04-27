@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductReadService } from '../services/productread/product-read.service';
-import { Packaging } from '../classes/class/Packaging';
-import { PackageFactory } from '../classes/class/PackageFactory';
 import {
   IonCard,
   IonCardHeader,
@@ -60,7 +58,6 @@ export class HomePage implements OnInit {
   showDeleteForm = false;
   deleteFormNumber = 0;
   selectedValue = '';
-  packages: Packaging[] = [];
   selectedTypes: ProductType[] = [];
   filteredProducts: IProduct[] = [];
   productTypes = productType;
@@ -88,19 +85,7 @@ export class HomePage implements OnInit {
     this.configService.setSelectedTypes(this.selectedTypes);
   }
 
-  handleChange(event: CustomEvent) {
-    this.selectedValue = event.detail.value;
-  }
-
-  handleClick(n: any) {
-    const index = parseInt(n);
-    const product = this.productReadService.getAllProducts()[index - 1];
-    if (product) {
-      const pack = PackageFactory.createPackage(product, this.selectedValue);
-      this.packages.push(pack);
-    }
-  }
-
+  // Додати новий продукт
   addFormShow() {
     this.showAddForm = true;
   }
@@ -110,6 +95,7 @@ export class HomePage implements OnInit {
     this.showAddForm = false;
   }
 
+  // Редагувати продукт
   editFormShow(n: number) {
     this.editFormNumber = n;
     this.showEditForm = true;
@@ -120,6 +106,7 @@ export class HomePage implements OnInit {
     this.showEditForm = false;
   }
 
+  // Видалити продукт
   deleteFormShow(n: number) {
     this.deleteFormNumber = n;
     this.showDeleteForm = true;
