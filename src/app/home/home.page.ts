@@ -40,10 +40,7 @@ import { IProduct } from '../classes/interface/IProduct';
     IonCardSubtitle,
     IonButton,
     IonItem,
-    IonInput,
     IonLabel,
-    IonRadioGroup,
-    IonRadio,
     IonCheckbox,
     CommonModule,
     AddProductComponent,
@@ -57,7 +54,6 @@ export class HomePage implements OnInit {
   editFormNumber = 0;
   showDeleteForm = false;
   deleteFormNumber = 0;
-  selectedValue = '';
   selectedTypes: ProductType[] = [];
   filteredProducts: IProduct[] = [];
   productTypes = productType;

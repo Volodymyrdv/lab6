@@ -1,0 +1,369 @@
+{
+  "products": {
+    "productId1": {
+      "id": 0,
+      "type": "Souvenir",
+      "name": "Магніт Львів",
+      "price": 100,
+      "material": "Кераміка"
+    },
+    "productId2": {
+      "id": 1,
+      "type": "Souvenir",
+      "name": "Кружка з принтом",
+      "price": 200,
+      "material": "Фарфор"
+    },
+    "productId3": {
+      "id": 2,
+      "type": "Souvenir",
+      "name": "Брелок серце",
+      "price": 80,
+      "material": "Метал"
+    },
+    "productId4": {
+      "id": 3,
+      "type": "Souvenir",
+      "name": "Фігурка козака",
+      "price": 250,
+      "material": "Глина"
+    },
+    "productId5": {
+      "id": 4,
+      "type": "Souvenir",
+      "name": "Картина на дереві",
+      "price": 400,
+      "material": "Дерево"
+    },
+    "productId6": {
+      "id": 5,
+      "type": "Letter",
+      "name": "Лист від Святого Миколая",
+      "price": 120
+    },
+    "productId7": {
+      "id": 6,
+      "type": "Letter",
+      "name": "Іменний лист до дитини",
+      "price": 150
+    },
+    "productId8": {
+      "id": 7,
+      "type": "Letter",
+      "name": "Лист подяки",
+      "price": 90
+    },
+    "productId9": {
+      "id": 8,
+      "type": "Letter",
+      "name": "Привітальний лист",
+      "price": 100
+    },
+    "productId10": {
+      "id": 9,
+      "type": "Letter",
+      "name": "Лист від Діда Мороза",
+      "price": 130
+    },
+    "productId11": {
+      "id": 10,
+      "type": "GiftSet",
+      "name": "Набір з чаю",
+      "price": 500,
+      "itemCount": 5,
+      "weight": 0.8
+    },
+    "productId12": {
+      "id": 11,
+      "type": "GiftSet",
+      "name": "Кавовий набір",
+      "price": 600,
+      "itemCount": 4,
+      "weight": 1.2
+    },
+    "productId13": {
+      "id": 12,
+      "type": "GiftSet",
+      "name": "Набір солодощів",
+      "price": 450,
+      "itemCount": 6,
+      "weight": 1
+    },
+    "productId14": {
+      "id": 13,
+      "type": "GiftSet",
+      "name": "Новорічний набір",
+      "price": 700,
+      "itemCount": 7,
+      "weight": 1.5
+    },
+    "productId15": {
+      "id": 14,
+      "type": "GiftSet",
+      "name": "Набір для душу",
+      "price": 550,
+      "itemCount": 3,
+      "weight": 1.3
+    },
+    "productId16": {
+      "id": 15,
+      "type": "Souvenir",
+      "name": "Дерев’яна листівка",
+      "price": 110,
+      "material": "Фанера"
+    },
+    "productId17": {
+      "id": 16,
+      "type": "Souvenir",
+      "name": "Свічка з ароматом",
+      "price": 170,
+      "material": "Віск"
+    },
+    "productId18": {
+      "id": 17,
+      "type": "Letter",
+      "name": "Лист до батьків",
+      "price": 100
+    },
+    "productId19": {
+      "id": 18,
+      "type": "GiftSet",
+      "name": "Набір для творчості",
+      "price": 480,
+      "itemCount": 8,
+      "weight": 0.9
+    },
+    "productId20": {
+      "id": 19,
+      "type": "Letter",
+      "name": "Вітальний лист на День народження",
+      "price": 140
+    },
+    "productId21": {
+      "id": 20,
+      "type": "Book",
+      "name": "Кобзар",
+      "price": 300,
+      "author": "Тарас Шевченко",
+      "pages": 240
+    },
+    "productId22": {
+      "id": 21,
+      "type": "Book",
+      "name": "Тіні забутих предків",
+      "price": 280,
+      "author": "Михайло Коцюбинський",
+      "pages": 190
+    },
+    "productId23": {
+      "id": 22,
+      "type": "Book",
+      "name": "Фантастичні звірі і де їх шукати",
+      "price": 350,
+      "author": "Дж.К. Ролінґ",
+      "pages": 128
+    },
+    "productId24": {
+      "id": 23,
+      "type": "Book",
+      "name": "1984",
+      "price": 320,
+      "author": "Джордж Орвелл",
+      "pages": 328
+    },
+    "productId25": {
+      "id": 24,
+      "type": "Book",
+      "name": "Хроніки Нарнії",
+      "price": 400,
+      "author": "Клайв Стейплз Льюїс",
+      "pages": 512
+    },
+    "productId26": {
+      "id": 25,
+      "type": "Book",
+      "name": "Місто",
+      "price": 290,
+      "author": "Валер'ян Підмогильний",
+      "pages": 276
+    },
+    "productId27": {
+      "id": 26,
+      "type": "Book",
+      "name": "Сторожова застава",
+      "price": 310,
+      "author": "Володимир Рутківський",
+      "pages": 304
+    },
+    "productId28": {
+      "id": 27,
+      "type": "Book",
+      "name": "Захар Беркут",
+      "price": 270,
+      "author": "Іван Франко",
+      "pages": 220
+    },
+    "productId29": {
+      "id": 28,
+      "type": "Book",
+      "name": "Дім, у якому...",
+      "price": 380,
+      "author": "Маріам Петросян",
+      "pages": 520
+    },
+    "productId30": {
+      "id": 29,
+      "type": "Book",
+      "name": "Пригоди Тома Сойєра",
+      "price": 260,
+      "author": "Марк Твен",
+      "pages": 200
+    },
+    "productId31": {
+      "id": 30,
+      "type": "GiftSet",
+      "name": "Набір спецій",
+      "price": 420,
+      "itemCount": 10,
+      "weight": 0.7
+    },
+    "productId32": {
+      "id": 31,
+      "type": "Souvenir",
+      "name": "Керамічний дзвіночок",
+      "price": 130,
+      "material": "Кераміка"
+    },
+    "productId33": {
+      "id": 32,
+      "type": "Souvenir",
+      "name": "Глиняна тарілка",
+      "price": 300,
+      "material": "Глина"
+    },
+    "productId34": {
+      "id": 33,
+      "type": "Souvenir",
+      "name": "Писанка",
+      "price": 150,
+      "material": "Яєчна шкаралупа"
+    },
+    "productId35": {
+      "id": 34,
+      "type": "Souvenir",
+      "name": "Плетена лялька-мотанка",
+      "price": 180,
+      "material": "Тканина"
+    },
+    "productId36": {
+      "id": 35,
+      "type": "Letter",
+      "name": "Лист-вітання першокласнику",
+      "price": 90
+    },
+    "productId37": {
+      "id": 36,
+      "type": "Letter",
+      "name": "Лист на День Святого Валентина",
+      "price": 110
+    },
+    "productId38": {
+      "id": 37,
+      "type": "Letter",
+      "name": "Лист подяки волонтеру",
+      "price": 100
+    },
+    "productId39": {
+      "id": 38,
+      "type": "GiftSet",
+      "name": "Дитячий набір для малювання",
+      "price": 470,
+      "itemCount": 6,
+      "weight": 1.1
+    },
+    "productId40": {
+      "id": 39,
+      "type": "GiftSet",
+      "name": "Набір меду",
+      "price": 530,
+      "itemCount": 4,
+      "weight": 0.6
+    },
+    "productId41": {
+      "id": 40,
+      "type": "Book",
+      "name": "Ловець у житі",
+      "price": 330,
+      "author": "Дж. Д. Селінджер",
+      "pages": 277
+    },
+    "productId42": {
+      "id": 41,
+      "type": "Book",
+      "name": "Під скляним ковпаком",
+      "price": 310,
+      "author": "Сильвія Плат",
+      "pages": 250
+    },
+    "productId43": {
+      "id": 42,
+      "type": "Book",
+      "name": "Ніч перед Різдвом",
+      "price": 200,
+      "author": "Микола Гоголь",
+      "pages": 120
+    },
+    "productId44": {
+      "id": 43,
+      "type": "Book",
+      "name": "Маленький принц",
+      "price": 220,
+      "author": "Антуан де Сент-Екзюпері",
+      "pages": 96
+    },
+    "productId45": {
+      "id": 44,
+      "type": "Book",
+      "name": "Таємничий острів",
+      "price": 390,
+      "author": "Жуль Верн",
+      "pages": 480
+    },
+    "productId46": {
+      "id": 45,
+      "type": "Souvenir",
+      "name": "Мініатюрна модель замку",
+      "price": 350,
+      "material": "Гіпс"
+    },
+    "productId47": {
+      "id": 46,
+      "type": "Souvenir",
+      "name": "Еко-торба з принтом",
+      "price": 220,
+      "material": "Тканина"
+    },
+    "productId48": {
+      "id": 47,
+      "type": "Letter",
+      "name": "Лист-привітання з перемогою",
+      "price": 105
+    },
+    "productId49": {
+      "id": 48,
+      "type": "GiftSet",
+      "name": "Набір для манікюру",
+      "price": 460,
+      "itemCount": 5,
+      "weight": 0.4
+    },
+    "productId50": {
+      "id": 59,
+      "type": "GiftSet",
+      "name": "Набір для релаксу",
+      "price": 620,
+      "itemCount": 6,
+      "weight": 1.4
+    }
+  }
+}
