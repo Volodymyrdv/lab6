@@ -4,7 +4,7 @@ export class GiftSet extends Product {
   private itemCount: number;
   private weight: number;
   constructor(
-    id: number,
+    id: string,
     name: string,
     price: number,
     itemCount: number,

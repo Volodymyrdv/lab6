@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductReadService } from '../services/productread/product-read.service';
+// import { ProductReadService } from '../services/productread/product-read.service';
+import { ProductBDReadService } from '../services/productbdread/product-bdread.service';
 import {
   IonCard,
   IonCardHeader,
@@ -51,65 +52,67 @@ import { IProduct } from '../classes/interface/IProduct';
 export class HomePage implements OnInit {
   showAddForm = false;
   showEditForm = false;
-  editFormNumber = 0;
   showDeleteForm = false;
-  deleteFormNumber = 0;
+
+  editFormNumber = '';
+  deleteFormNumber = '';
+
   selectedTypes: ProductType[] = [];
   filteredProducts: IProduct[] = [];
   productTypes = productType;
 
   constructor(
-    public productReadService: ProductReadService,
+    private productService: ProductBDReadService,
     private configService: ConfigService
   ) {}
 
-  ngOnInit() {
-    this.productReadService.load();
-    this.productReadService.searchProduct$.subscribe((products) => {
+  ngOnInit(): void {
+    this.productService.products$.subscribe((products) => {
       this.filteredProducts = products;
     });
+    this.productService.fetchProducts();
   }
 
-  handleCheckboxChange(event: CustomEvent, productType: ProductType) {
-    if (event.detail.checked) {
-      this.selectedTypes.push(productType);
-    } else {
-      this.selectedTypes = this.selectedTypes.filter(
-        (type) => type !== productType
-      );
-    }
-    this.configService.setSelectedTypes(this.selectedTypes);
-  }
+  // handleCheckboxChange(event: CustomEvent, productType: ProductType) {
+  //   if (event.detail.checked) {
+  //     this.selectedTypes.push(productType);
+  //   } else {
+  //     this.selectedTypes = this.selectedTypes.filter(
+  //       (type) => type !== productType
+  //     );
+  //   }
+  //   this.configService.setSelectedTypes(this.selectedTypes);
+  // }
 
   // Додати новий продукт
   addFormShow() {
     this.showAddForm = true;
   }
 
-  addProduct($event: IProduct) {
-    this.productReadService.addProduct($event);
+  addProduct($event: any) {
+    this.productService.addProduct($event);
     this.showAddForm = false;
   }
 
   // Редагувати продукт
-  editFormShow(n: number) {
+  editFormShow(n: string) {
     this.editFormNumber = n;
     this.showEditForm = true;
   }
 
-  editProduct($event: IProduct) {
-    this.productReadService.editProduct($event);
+  editProduct($event: any) {
+    this.productService.editProduct($event);
     this.showEditForm = false;
   }
 
   // Видалити продукт
-  deleteFormShow(n: number) {
+  deleteFormShow(n: string) {
     this.deleteFormNumber = n;
     this.showDeleteForm = true;
   }
 
-  deleteProduct(n: number) {
-    this.productReadService.deleteProduct(n);
+  deleteProduct(n: string) {
+    this.productService.deleteProduct(n);
     this.showDeleteForm = false;
   }
 

@@ -49,9 +49,9 @@ export class ProductReadService {
   }
 
   public addProduct(product: IProduct) {
-    product.setID(this.products.length + 1);
-    this.products.push(product);
-    this.search(this.configService.selectedTypes$.getValue());
+    // product.setID(this.products.length + 1);
+    // this.products.push(product);
+    // this.search(this.configService.selectedTypes$.getValue());
   }
 
   public editProduct(product: IProduct) {
@@ -63,9 +63,9 @@ export class ProductReadService {
   }
 
   public deleteProduct(id: number) {
-    this.products = this.products.filter((product) => product.getID() !== id);
-    this.products.forEach((product, index) => product.setID(index + 1));
-    this.search(this.configService.selectedTypes$.getValue());
+    // this.products = this.products.filter((product) => product.getID() !== id);
+    // this.products.forEach((product, index) => product.setID(index + 1));
+    // this.search(this.configService.selectedTypes$.getValue());
   }
 
   public getAllProducts(): IProduct[] {

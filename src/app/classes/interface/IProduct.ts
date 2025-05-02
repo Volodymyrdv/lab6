@@ -1,8 +1,8 @@
 export interface IProduct {
-  getID(): number;
+  getID(): string;
   getName(): string;
   getPrice(): number;
   getDetails(): string[];
   getType(): string;
-  setID(id: number): void;
+  setID(id: string): void;
 }

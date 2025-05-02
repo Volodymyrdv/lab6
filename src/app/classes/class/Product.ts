@@ -1,19 +1,18 @@
 import { IProduct } from '../interface/IProduct';
 
 export abstract class Product implements IProduct {
-  private id: number;
+  private id: string;
   private price: number;
   private name: string;
 
-  constructor(id: number, name: string, price: number) {
-    if (id < 0) throw new Error('ID < 0');
+  constructor(id: string, name: string, price: number) {
     if (price < 0) throw new Error('Price < 0');
     this.id = id;
     this.price = price;
     this.name = name;
   }
 
-  getID(): number {
+  getID(): string {
     return this.id;
   }
 
@@ -33,8 +32,7 @@ export abstract class Product implements IProduct {
     return 'Product';
   }
 
-  setID(id: number): void {
-    if (id < 0) throw new Error('ID < 0');
+  setID(id: string): void {
     this.id = id;
   }
 }

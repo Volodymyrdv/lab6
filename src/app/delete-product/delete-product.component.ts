@@ -28,7 +28,7 @@ import { CommonModule } from '@angular/common';
 })
 export class DeleteProductComponent {
   @Input() product!: IProduct;
-  @Output() productDeleted = new EventEmitter<number>();
+  @Output() productDeleted = new EventEmitter<string>();
   @Output() cancel = new EventEmitter<void>();
 
   confirmDelete() {

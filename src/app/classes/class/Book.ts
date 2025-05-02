@@ -4,7 +4,7 @@ export class Book extends Product {
   private author: string;
   private pages: number;
   constructor(
-    id: number,
+    id: string,
     name: string,
     price: number,
     author: string,

@@ -1,7 +1,7 @@
 <ion-content [fullscreen]="true">
   <app-my-header></app-my-header>
 
-  <ion-title class="center-title">Вибір типу товару</ion-title>
+  <!-- <ion-title class="center-title">Вибір типу товару</ion-title>
   <ion-item *ngFor="let type of productTypes">
     <ion-label>{{type}}</ion-label>
     <ion-checkbox
@@ -10,7 +10,7 @@
       [checked]="selectedTypes.includes(type)"
     >
     </ion-checkbox>
-  </ion-item>
+  </ion-item> -->
 
   <ion-button (click)="addFormShow()">Додати подарунок</ion-button>
   <app-add-product
@@ -19,11 +19,9 @@
   ></app-add-product>
 
   <ion-title class="center-title">Вибір товару</ion-title>
-  <ion-card *ngFor="let product of filteredProducts">
+  <ion-card *ngFor="let product of filteredProducts; index as i">
     <ion-card-header class="card-header">
-      <ion-card-title
-        >{{product.getName()}} №{{product.getID()}}</ion-card-title
-      >
+      <ion-card-title>{{product.getName()}}</ion-card-title>
       <ion-card-subtitle>{{product.getType()}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content class="body">
